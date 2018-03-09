@@ -61,59 +61,10 @@ export default {
       totalCount:0,
       filterText: '',
       // dialogVisible:false,
-      data: [
-        {
-          id: 1,
-          label: "部门部门",
-          children: [
-            {
-              id: 4,
-              label: "部门部门",
-              children: [
-                {
-                  id: 9,
-                  label: "部门v"
-                },
-                {
-                  id: 10,
-                  label: "部门部门"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          id: 2,
-          label: "部门",
-          children: [
-            {
-              id: 5,
-              label: "部门"
-            },
-            {
-              id: 6,
-              label: "部门"
-            }
-          ]
-        },
-        {
-          id: 3,
-          label: "部门",
-          children: [
-            {
-              id: 7,
-              label: "部门"
-            },
-            {
-              id: 8,
-              label: "部门"
-            }
-          ]
-        }
-      ],
+      data: [],
       defaultProps: {
         children: "children",
-        label: "label"
+        label: "name"
       }
     };
   },
@@ -253,36 +204,11 @@ export default {
           </span>
       );
     },
-    getTree(array){
-      for (let i in array) {
-        let childrenArr = this.children(array[i].id, array);
-        console.log(childrenArr)
-        if (childrenArr.length > 0) {
-          for (let i in childrenArr) {
-            this.getTree(childrenArr[i].id, array);
-          }
-        }
-      }
-    },
     Department(){
           getDepartment().then(response => {
-            this.getTree(response.data)
+            this.data = response.data
           })
         },
-    children(id, Array) {
-      let department = [];
-      for (let i in Array) {
-        if (Array[i].parentid === id) {
-          let db = {
-            id: Array[i].id,
-            parentid: Array[i].parentid,
-            label: Array[i].name,
-          }
-          department.push(db)
-        }
-      }
-      return department
-    },
     UserList(){
         this.listLoading = true
         let params = {
