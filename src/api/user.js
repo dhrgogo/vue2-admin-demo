@@ -1,45 +1,25 @@
-// eslint-disable-next-line
-/* eslint-disable */
 import request from '@/utils/request'
 
-export function getUser(params) {
+export function login(data) {
+  console.log("===========user", data)
   return request({
-    url: '/user/list',
-    method: 'get',
-    params
-  })
-}
-export function Creat(form) {
-  return request({
-    url: '/user/create',
+    url: '/user/login',
     method: 'post',
-    data: {
-      name:form.name,
-      mobile: form.mobile,
-      position: form.position,
-      gender: form.gender,
-      department: form.department,
-      email: form.email
-    }
+    data
   })
 }
-export function Update(form) {
+
+export function getInfo(token) {
   return request({
-    url: '/user/update/'+form.id+'',
-    method: 'put',
-    data: {
-      name:form.name,
-      mobile: form.mobile,
-      position: form.position,
-      gender: form.gender,
-      department: form.department,
-      email: form.email
-    }
+    url: '/user/info',
+    method: 'get',
+    params: {token}
   })
 }
-export function getDepartment(form) {
+
+export function logout() {
   return request({
-    url: '/department/list',
-    method: 'get'
+    url: '/user/logout',
+    method: 'post'
   })
 }
