@@ -97,8 +97,8 @@ export default {
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 8) {
-        callback(new Error('密码长度8位'))
+      if (value.length < 6) {
+        callback(new Error('密码长度6位'))
       } else {
         callback()
       }
