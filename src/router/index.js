@@ -84,6 +84,32 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/user',
+    component: Layout,
+    redirect: '/user/index',
+    meta: { title: 'user', icon: 'dashboard', affix: true },
+    children: [
+      {
+        path: 'massage',
+        component: () => import('@/views/user/index'),
+        name: 'User',
+        meta: { title: 'user', icon: 'lock', affix: true }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/user/index'),
+        name: 'Role',
+        meta: { title: 'role', icon: 'dashboard', affix: true }
+      },
+      {
+        path: 'menu',
+        component: () => import('@/views/user/index'),
+        name: 'Menu',
+        meta: { title: 'menu', icon: 'guide', affix: true }
+      }
+    ]
+  },
+  {
     path: '/documentation',
     component: Layout,
     children: [

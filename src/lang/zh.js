@@ -1,6 +1,12 @@
 export default {
   route: {
     dashboard: '首页',
+    
+    user: '用户管理',
+    role: '角色管理',
+    menu: '菜单管理',
+    // Permission: '用户管理',
+    
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',
