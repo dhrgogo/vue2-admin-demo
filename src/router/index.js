@@ -91,19 +91,19 @@ export const constantRoutes = [
     children: [
       {
         path: 'massage',
-        component: () => import('@/views/user/index'),
+        component: () => import('@/views/user'),
         name: 'User',
         meta: { title: 'user', icon: 'lock', affix: true }
       },
       {
         path: 'role',
-        component: () => import('@/views/user/index'),
+        component: () => import('@/views/role'),
         name: 'Role',
         meta: { title: 'role', icon: 'dashboard', affix: true }
       },
       {
         path: 'menu',
-        component: () => import('@/views/user/index'),
+        component: () => import('@/views/menu'),
         name: 'Menu',
         meta: { title: 'menu', icon: 'guide', affix: true }
       }
